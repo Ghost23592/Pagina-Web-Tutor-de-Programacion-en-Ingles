@@ -1,0 +1,16 @@
+JUAN ANTONIO MILLÁN GALIANO — WEB PROJECT
+
+HOW TO OPEN THE WEBSITE
+1. Extract the ZIP file.
+2. Open the folder.
+3. Double-click index.html. It opens in your web browser.
+4. No installation or internet connection is needed for the page itself.
+
+FILES
+- index.html: the complete website (HTML and CSS in one file).
+- 12_palabras_glosario.txt: the separate list of the 12 glossary choices.
+
+BEFORE SUBMITTING
+- The contact address juan.millan@example.com is fictitious, as allowed by the assignment. You can leave it as an example or replace it with a contact method approved by your teacher.
+- Check that you can explain the C tutorial in your own words.
+- Open the page on both a computer and a narrow/mobile window to check the layout.

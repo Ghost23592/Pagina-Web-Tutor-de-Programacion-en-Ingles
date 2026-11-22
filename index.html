@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Beginner programming lessons with Juan Antonio Millán Galiano.">
+  <title>Juan Antonio Millán Galiano | Learn Programming</title>
+  <style>
+    :root {
+      --bg: #f5f7fb;
+      --surface: #ffffff;
+      --ink: #182235;
+      --muted: #647087;
+      --blue: #3157c8;
+      --blue-dark: #2445a7;
+      --pale: #eaf0ff;
+      --line: #e3e8f1;
+      --green: #2f8068;
+      --shadow: 0 12px 35px rgba(28, 43, 75, .08);
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      color: var(--ink);
+      background: var(--bg);
+      line-height: 1.6;
+    }
+    a { color: inherit; text-decoration: none; }
+    .container { width: min(1080px, 90%); margin: 0 auto; }
+    header {
+      background: rgba(255,255,255,.96);
+      border-bottom: 1px solid var(--line);
+      position: sticky; top: 0; z-index: 10;
+      backdrop-filter: blur(10px);
+    }
+    .nav {
+      min-height: 70px; display: flex; align-items: center;
+      justify-content: space-between; gap: 20px;
+    }
+    .brand { font-weight: 800; letter-spacing: -.4px; }
+    .brand span { color: var(--blue); }
+    nav { display: flex; gap: 23px; align-items: center; }
+    nav a { color: var(--muted); font-size: .92rem; font-weight: 600; }
+    nav a:hover { color: var(--blue); }
+    .hero { padding: 76px 0 68px; }
+    .hero-grid {
+      display: grid; grid-template-columns: 1.3fr .7fr;
+      gap: 45px; align-items: center;
+    }
+    .eyebrow {
+      display: inline-block; color: var(--blue); background: var(--pale);
+      padding: 7px 12px; border-radius: 30px; font-size: .82rem;
+      font-weight: 700; letter-spacing: .4px;
+    }
+    h1 { font-size: clamp(2.4rem, 5vw, 4.2rem); line-height: 1.08; margin: 18px 0; letter-spacing: -2px; }
+    h1 span { color: var(--blue); }
+    .lead { color: var(--muted); font-size: 1.12rem; max-width: 620px; }
+    .actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 27px; }
+    .btn {
+      display: inline-block; padding: 12px 19px; border-radius: 9px;
+      background: var(--blue); color: white; font-weight: 700;
+      border: 1px solid var(--blue); transition: .2s;
+    }
+    .btn:hover { background: var(--blue-dark); transform: translateY(-1px); }
+    .btn.secondary { background: white; color: var(--ink); border-color: var(--line); }
+    .profile-card {
+      background: var(--surface); border: 1px solid var(--line);
+      padding: 28px; border-radius: 18px; box-shadow: var(--shadow);
+    }
+    .avatar {
+      width: 78px; height: 78px; border-radius: 22px; display: grid;
+      place-items: center; background: var(--pale); color: var(--blue);
+      font-size: 1.65rem; font-weight: 800; margin-bottom: 20px;
+    }
+    .profile-card h2 { margin: 0 0 5px; font-size: 1.2rem; }
+    .profile-card p { margin: 0; color: var(--muted); }
+    .profile-meta { border-top: 1px solid var(--line); margin-top: 20px; padding-top: 17px; }
+    .profile-meta div { display: flex; justify-content: space-between; gap: 12px; margin: 7px 0; font-size: .9rem; }
+    .profile-meta strong { color: var(--ink); }
+    section { padding: 67px 0; }
+    .section-heading { max-width: 650px; margin-bottom: 28px; }
+    .section-heading .eyebrow { margin-bottom: 10px; }
+    h2.section-title { font-size: clamp(1.8rem, 3vw, 2.5rem); line-height: 1.2; margin: 8px 0 10px; letter-spacing: -.8px; }
+    .section-heading p { color: var(--muted); margin: 0; }
+    .cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+    .card {
+      background: var(--surface); padding: 23px; border: 1px solid var(--line);
+      border-radius: 14px; box-shadow: 0 5px 20px rgba(28,43,75,.035);
+    }
+    .icon {
+      width: 42px; height: 42px; border-radius: 11px; display: grid;
+      place-items: center; background: var(--pale); color: var(--blue);
+      font-size: 1.15rem; font-weight: 800; margin-bottom: 14px;
+    }
+    .card h3 { margin: 0 0 7px; font-size: 1.08rem; }
+    .card p { margin: 0; color: var(--muted); font-size: .95rem; }
+    .soft { background: #edf2fb; }
+    .method-grid { display: grid; grid-template-columns: .8fr 1.2fr; gap: 35px; align-items: start; }
+    .steps { display: grid; gap: 13px; }
+    .step {
+      display: flex; gap: 15px; padding: 17px; background: white;
+      border: 1px solid var(--line); border-radius: 12px;
+    }
+    .number {
+      flex: 0 0 32px; height: 32px; border-radius: 50%; display: grid;
+      place-items: center; color: white; background: var(--blue); font-weight: 700;
+    }
+    .step h3 { margin: 0 0 3px; font-size: 1rem; }
+    .step p { margin: 0; color: var(--muted); font-size: .92rem; }
+    .tutorial {
+      background: var(--surface); border: 1px solid var(--line);
+      border-radius: 16px; overflow: hidden; box-shadow: var(--shadow);
+    }
+    .tutorial-head { padding: 20px 23px; border-bottom: 1px solid var(--line); }
+    .tutorial-head h3 { margin: 0 0 4px; }
+    .tutorial-head p { margin: 0; color: var(--muted); font-size: .92rem; }
+    pre {
+      margin: 0; padding: 22px; overflow-x: auto; color: #e9efff;
+      background: #172238; font: .92rem/1.7 Consolas, Monaco, monospace;
+    }
+    .code-note { padding: 20px 23px; color: var(--muted); font-size: .94rem; }
+    .code-note strong { color: var(--ink); }
+    .result {
+      display: inline-block; margin-top: 8px; background: #eaf7f1;
+      color: #24664f; border-radius: 7px; padding: 7px 11px;
+      font-family: Consolas, monospace; font-size: .9rem;
+    }
+    .why-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+    .why-item { background: white; border: 1px solid var(--line); border-radius: 13px; padding: 20px; }
+    .why-item h3 { margin: 0 0 6px; font-size: 1rem; }
+    .why-item p { margin: 0; color: var(--muted); font-size: .94rem; }
+    .contact {
+      background: #172238; color: white; border-radius: 20px;
+      padding: 36px; display: flex; justify-content: space-between;
+      align-items: center; gap: 25px;
+    }
+    .contact h2 { margin: 0 0 8px; font-size: 2rem; }
+    .contact p { color: #c5cee0; margin: 0; max-width: 580px; }
+    .contact .btn { background: white; border-color: white; color: #172238; white-space: nowrap; }
+    footer { padding: 25px 0; color: var(--muted); font-size: .85rem; }
+    footer .container { display: flex; justify-content: space-between; gap: 15px; flex-wrap: wrap; }
+    @media (max-width: 760px) {
+      .nav { padding: 14px 0; align-items: flex-start; flex-direction: column; }
+      nav { gap: 14px; flex-wrap: wrap; }
+      nav a { font-size: .84rem; }
+      .hero { padding: 52px 0; }
+      .hero-grid, .method-grid { grid-template-columns: 1fr; }
+      .cards { grid-template-columns: 1fr; }
+      .why-grid { grid-template-columns: 1fr; }
+      section { padding: 50px 0; }
+      .contact { align-items: flex-start; flex-direction: column; padding: 27px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <a class="brand" href="#home">Juan Antonio<span>.</span></a>
+      <nav aria-label="Main navigation">
+        <a href="#about">About me</a>
+        <a href="#lessons">Lessons</a>
+        <a href="#method">My method</a>
+        <a href="#tutorial">Tutorial</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="container hero-grid">
+        <div>
+          <span class="eyebrow">PROGRAMMING FOR BEGINNERS</span>
+          <h1>Start learning.<br><span>Start creating.</span></h1>
+          <p class="lead">Hello! I am Juan Antonio Millán Galiano. I am a student of Multiplatform Application Development (DAM). I want to help beginners understand programming with clear explanations and practical exercises.</p>
+          <div class="actions">
+            <a class="btn" href="#lessons">Explore my lessons</a>
+            <a class="btn secondary" href="#contact">Contact me</a>
+          </div>
+        </div>
+        <aside class="profile-card" id="about">
+          <div class="avatar">JM</div>
+          <h2>Juan Antonio Millán Galiano</h2>
+          <p>DAM student · Beginner programming tutor</p>
+          <div class="profile-meta">
+            <div><span>My level</span><strong>Student</strong></div>
+            <div><span>Main language</span><strong>C</strong></div>
+            <div><span>My focus</span><strong>Practice</strong></div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section id="lessons">
+      <div class="container">
+        <div class="section-heading">
+          <span class="eyebrow">WHAT I CAN TEACH</span>
+          <h2 class="section-title">Simple lessons for your first steps</h2>
+          <p>My lessons are for people who are new to programming. You do not need previous experience. We will start with the basics and build small projects.</p>
+        </div>
+        <div class="cards">
+          <article class="card">
+            <div class="icon">01</div>
+            <h3>Programming basics</h3>
+            <p>Learn variables, data types, conditions, loops and functions with small examples in C. You will understand how software follows instructions.</p>
+          </article>
+          <article class="card">
+            <div class="icon">02</div>
+            <h3>Practice and logic</h3>
+            <p>Write simple programs, test your ideas and learn how to solve problems step by step.</p>
+          </article>
+          <article class="card">
+            <div class="icon">03</div>
+            <h3>First web pages</h3>
+            <p>Understand the basic structure of HTML and design a webpage with simple CSS styles. You can also learn how apps use data.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="soft" id="method">
+      <div class="container method-grid">
+        <div class="section-heading">
+          <span class="eyebrow">MY TEACHING METHOD</span>
+          <h2 class="section-title">Learn at your own pace</h2>
+          <p>I know that programming can be difficult at first. My goal is to make each idea easier to understand. I use examples and exercises, not only theory.</p>
+        </div>
+        <div class="steps">
+          <div class="step"><span class="number">1</span><div><h3>Explain</h3><p>First, I explain one idea with simple words and a short example.</p></div></div>
+          <div class="step"><span class="number">2</span><div><h3>Practice</h3><p>Then, we write code together and change it to see what happens.</p></div></div>
+          <div class="step"><span class="number">3</span><div><h3>Test and improve</h3><p>Finally, we test the program. If there is an error, we read it and try to find the cause.</p></div></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="tutorial">
+      <div class="container">
+        <div class="section-heading">
+          <span class="eyebrow">A SHORT LESSON</span>
+          <h2 class="section-title">Your first variable in C</h2>
+          <p>A variable stores information that a program can use. In this example, we store a name and show a greeting on the screen.</p>
+        </div>
+        <div class="tutorial">
+          <div class="tutorial-head">
+            <h3>Example: a simple greeting</h3>
+            <p>Goal: save a name and print a message.</p>
+          </div>
+          <pre><code>#include &lt;stdio.h&gt;
+
+int main() {
+    char name[] = "Alex";
+
+    printf("Hello, %s!\\n", name);
+
+    return 0;
+}</code></pre>
+          <div class="code-note">
+            <p><strong>How does it work?</strong></p>
+            <p>1. <strong>char name[]</strong> creates a variable to store text.<br>
+            2. <strong>"Alex"</strong> is the value saved in the variable.<br>
+            3. <strong>printf()</strong> shows the message. The symbol <strong>%s</strong> is replaced by the text in <strong>name</strong>.</p>
+            <p><strong>Expected result:</strong></p>
+            <span class="result">Hello, Alex!</span>
+            <p><strong>Common beginner mistake:</strong> forgetting the quotation marks around the text. Text values need quotation marks in this example.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="soft">
+      <div class="container">
+        <div class="section-heading">
+          <span class="eyebrow">WHY LEARN WITH ME?</span>
+          <h2 class="section-title">A practical and honest approach</h2>
+          <p>I am still learning too, so I understand some of the problems that beginners can have.</p>
+        </div>
+        <div class="why-grid">
+          <article class="why-item">
+            <h3>Clear explanations</h3>
+            <p>I use small examples and explain what each part of the code does. You only need a computer, a keyboard and a free C compiler.</p>
+          </article>
+          <article class="why-item">
+            <h3>Useful practice</h3>
+            <p>We work with useful exercises that help you understand the ideas, not just copy code. You can use a laptop to follow the lessons.</p>
+          </article>
+          <article class="why-item">
+            <h3>Support with errors</h3>
+            <p>I can give support when your program does not work. We read the message, troubleshoot the problem and solve problems together.</p>
+          </article>
+          <article class="why-item">
+            <h3>Learning step by step</h3>
+            <p>You can ask questions at any time. We can repeat an example before moving to a new topic.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="container">
+        <div class="contact">
+          <div>
+            <h2>Ready to start?</h2>
+            <p>If you want to learn the basics of programming, contact me for more information. Tell me what you want to learn and I will try to help you.</p>
+          </div>
+          <a class="btn" href="mailto:juan.millan@example.com?subject=Programming%20lessons">Send a message</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <span>© 2026 Juan Antonio Millán Galiano</span>
+      <span>Programming lessons for beginners · Student project</span>
+    </div>
+  </footer>
+</body>
+</html>

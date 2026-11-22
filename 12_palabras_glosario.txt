@@ -1,0 +1,18 @@
+12 GLOSSARY WORDS — JUAN ANTONIO MILLÁN GALIANO
+
+The following 12 different words or expressions from the project glossary are used in complete sentences on the website.
+
+1. software — Lessons, “Programming basics”: “You will understand how software follows instructions.”
+2. apps — Lessons, “First web pages”: “You can also learn how apps use data.”
+3. data — Lessons, “First web pages”: “You can also learn how apps use data.”
+4. laptop — “Why learn with me?”, “Clear explanations”: “You can use a laptop to follow the lessons.”
+5. test — Lessons, “Practice and logic”: “Write simple programs, test your ideas...”
+6. troubleshoot — “Why learn with me?”, “Support with errors”: “...troubleshoot the problem...”
+7. solve problems — Lessons, “Practice and logic”: “...learn how to solve problems step by step.”
+8. design a webpage — Lessons, “First web pages”: “...design a webpage with simple CSS styles.”
+9. give support — “Why learn with me?”, “Support with errors”: “I can give support when your program does not work.”
+10. basic — Lessons, “Programming basics”: “Programming basics”; also appears in the contact section.
+11. useful — “Why learn with me?”, “Useful practice”: “We work with useful exercises...”
+12. keyboard — “Why learn with me?”, “Clear explanations”: “...a keyboard and a free C compiler.”
+
+All 12 choices are included in the website text. The list is a separate delivery document, as requested in the project instructions.
